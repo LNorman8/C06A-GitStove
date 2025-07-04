@@ -26,13 +26,14 @@ public class Stove {
     /**
      * Display the current stove status
      * <p>
-     * *** You must write the following method ****
+     * Use the displayTemp function.
+     * Additionally, use temperature getter to see if light should be on.
      */
     public void displayStove() {
         boolean light = false;
         for (Burner burner : burners) {
             burner.displayTemperature();
-            light = light || burner.isFire();
+            light = light || (burner.getMyTemp() == Burner.Temperature.FIREFIREFIRE);
         }
         if (light) {
             System.out.println("RED LIGHT - HOT BURNER ALERT");
